@@ -1,263 +1,244 @@
 # 🏥 Hospital Digital Twin – ICU Command Center
 
-A real-time Hospital Digital Twin System built using Streamlit, Machine Learning, and Data Engineering principles to simulate, predict, and optimize ICU operations under critical conditions.
-
-# 🚀 Project Overview
-
-This project models a virtual ICU environment where:
-
-Patient vitals continuously update
-
-Risk scores are dynamically computed
-
-Beds are allocated automatically
-
-Resource usage is predicted
-
-ICU operations are visualized in real-time
-
-It solves the challenge of managing a highly volatile healthcare ecosystem with limited resources.
+> A real-time Hospital Digital Twin System designed to simulate, monitor, predict, and optimize ICU operations under critical healthcare conditions using Machine Learning, Streamlit, and Data Engineering concepts.
 
 
-# 🎯 Key Features
+# 📌 Project Overview
 
-# 🧠 Intelligent Risk Prediction
+The **Hospital Digital Twin** is a virtual representation of an ICU environment that continuously processes patient telemetry, demographics, and prescription data to:
 
-Machine Learning-based risk scoring using patient vitals
+- Predict patient risk levels
+- Allocate ICU beds dynamically
+- Simulate real-time hospital conditions
+- Monitor resource consumption
+- Improve operational decision-making
 
-Handles missing values using preprocessing pipelines
+This system is designed to handle a highly volatile healthcare ecosystem where patient admissions, changing vitals, and resource limitations must be managed intelligently.
 
-Predicts critical patients in real-time
 
-# 🏨 Automated Ward Allocation
+# 🚀 Features
 
-ICU vs General ward assignment
+## 🧠 Intelligent Risk Prediction
+- Machine Learning-based patient risk scoring
+- Predicts critical conditions using:
+  - Heart Rate
+  - SpO2
+  - Age
+- Logistic Regression-based predictive model
+- Handles missing values using preprocessing pipelines
+
+
+## 🏨 Automated Ward Allocation
+Automatically assigns patients to:
+- ICU Ward
+- General Ward
+- Waiting Queue
 
 Based on:
-
-Risk score
-
-Bed availability
-
-Priority-based routing system
-
-# 📊 Interactive Dashboard (Streamlit)
-
-# 🔴 ICU Bed Heatmap
-
-Visual representation of patient distribution
-
-Risk intensity shown using color gradients
-
-📈 Resource Consumption Graph
-
-Tracks ICU load trends over time
-
-Helps predict system stress
-
-🧍 Patient Flow Timeline
-
-Tracks patient movement and risk progression
-
-🎛️ Simulation Control Panel
-
-Adjust ICU capacity
-
-Run real-time simulation
-
-Observe dynamic changes
-
-🔄 Real-Time Simulation Engine
-
-Simulates changing vitals (heart rate, SpO2)
-
-Mimics real ICU conditions
-
-Enables stress testing of the system
-
-# 🗂️ Project Structure
-
-hospital_digital_twin/
-│
-├── app.py                      
-├── data/
-│   ├── patient_demographics.csv
-│   ├── telemetry_logs.csv
-│   └── prescriptions.csv
-│
-├── utils/
-│   ├── data_loader.py
-│   ├── risk_engine.py
-│   ├── allocation.py
-│   ├── simulation.py
-│   └── visualization.py
-│
-├── models/
-│   ├── risk_model.py
-│   ├── risk_model.pkl
-│   └── scaler.pkl
-│
-├── config/
-│   └── settings.py
-│
-└── requirements.txt
+- Risk score
+- Bed capacity
+- Patient priority
 
 
-# ⚙️ Installation & Setup
+## 📊 Operational Command Dashboard
 
-# 1️⃣ Clone the Repository
+### 🔴 ICU Bed Heatmap
+Visualizes:
+- Bed occupancy
+- Risk concentration
+- ICU distribution
 
+
+### 📈 Resource Consumption Graph
+Tracks:
+- ICU load
+- Risk trends
+- Operational pressure
+
+
+### 🧍 Patient Flow Timeline
+Displays:
+- Patient movement
+- Risk evolution
+- Ward transitions
+
+
+### 🎛️ Simulation Control Panel
+Interactive controls for:
+- ICU capacity
+- General ward capacity
+- Running real-time simulations
+
+
+## 🔄 Real-Time Simulation Engine
+Simulates:
+- Dynamic heart rate changes
+- Oxygen fluctuation
+- ICU stress conditions
+
+
+# 🧱 Tech Stack
+
+| Technology | Purpose |
+|------------|----------|
+| Python | Core Programming |
+| Streamlit | Dashboard UI |
+| Pandas | Data Processing |
+| NumPy | Numerical Operations |
+| Plotly | Interactive Visualizations |
+| Scikit-Learn | Machine Learning |
+| Joblib | Model Serialization |
+
+
+## 📊 Dataset Information
+The project uses three datasets:
+- patient_demographics.csv
+- telemetry_logs.csv
+- prescriptions.csv
+
+## 🧠 Machine Learning Pipeline
+**Model Used**
+- Logistic Regression
+  
+**Features Used**
+- Heart Rate
+- SpO2
+- Age
+- 
+## ML Workflow
+
+Raw Data
+   ↓
+Data Cleaning
+   ↓
+Missing Value Handling
+   ↓
+Feature Engineering
+   ↓
+Feature Scaling
+   ↓
+Model Training
+   ↓
+Risk Prediction
+   ↓
+Ward Allocation
+
+
+## ⚙️ Installation
+
+### 1️⃣ Clone Repository
+```bash
 git clone https://github.com/your-username/hospital-digital-twin.git
-
 cd hospital-digital-twin
+```
 
-# 2️⃣ Create Virtual Environment (Recommended)
-
-python -m venv venv
-
-Activate:
-
+### 2️⃣ Create Virtual Environment
 Windows
-
+```bash
+python -m venv venv
 venv\Scripts\activate
+```
 Mac/Linux
-Bash
+```bash
+python3 -m venv venv
 source venv/bin/activate
-3️⃣ Install Dependencies
-Bash
+```
+
+### 3️⃣ Install Dependencies
+```bash
 pip install -r requirements.txt
-4️⃣ Run the Application
+```
 
+### ▶️ Running the Project
+```bash
 streamlit run app.py
+```
 
-Open in browser:
-
+## 🌐 Streamlit Dashboard
+**After running:**
 http://localhost:8501
+Open this URL in your browser.
 
-# 📊 Dataset Information
-
-The system uses three datasets:
-
-File
-
-Description
-
-patient_demographics.csv
-
-Patient info (age, ID, etc.)
-
-telemetry_logs.csv
-
-Real-time vitals (heart rate, SpO2)
-
-prescriptions.csv
-
-Medication data
-
-# 🧠 Machine Learning Model
-Model: Logistic Regression
-
-Features:
-
-Heart Rate (from hex)
-
-SpO2
-
-Age
-
-Output:
-
-Risk Score (0–1 probability)
-
-# 🔧 Data Handling
-
-Missing values handled using median imputation
-
-Feature scaling applied using StandardScaler
-
-Pipeline-based preprocessing ensures robustness
-
-⚠️ Common Issues & Fixes
-
-❌ NaN Error in Model
-
-✔ Fixed using:
-
-Python
-
-SimpleImputer(strategy="median")
-
-❌ File Not Found
-
-✔ Ensure:
-
-data/*.csv files exist
-
-❌ Wrong Column Names
-
-✔ Required columns:
-
-internal_id
-
-heart_rate_hex
-
-spO2
-
-age
-# 🔥 Advanced Features (Future Scope)
-
-✅ XGBoost / Deep Learning model
-
-✅ Real-time streaming using Kafka
-
-✅ ICU alert system 🚨
-
-✅ Duplicate patient detection (ghost ID logic)
-
-✅ Role-based dashboard (Admin/Doctor)
-
-✅ Cloud deployment (AWS / Render)
+## 📦 Requirements
+- streamlit
+- pandas
+- numpy
+- plotly
+- scikit-learn
+- joblib
 
 
-# 💡 Use Cases
+### 🧪 Model Training
+The system automatically:
+- Loads patient data
+- Preprocesses features
+- Handles missing values
+- Trains Logistic Regression model
+- Predicts risk scores
+  
+### 🔥 Risk Score Logic
+- Patients are classified as high risk based on:
+- High heart rate
+- Low oxygen level
+- Advanced age
 
-ICU capacity planning
+### 🛠️ Missing Value Handling
+- Healthcare data often contains missing values.
+**This project uses:**
+- Python
+- SimpleImputer(strategy="median") to ensure robust predictions.
 
-Emergency response simulation
+### 📈 Dashboard Components
+ICU Heatmap
+**Shows:**
+- Bed utilization
+- Patient risk intensity
+- Resource Trend Graph
 
-Hospital resource optimization
+**Tracks:**
+- Risk score progression
+- ICU pressure over time
+- Patient Timeline
 
-Predictive healthcare analytics
+**Displays:**
+- Patient movement
+- Operational flow
 
-# 🏆 Why This Project Stands Out
 
-✔ Combines ML + Data Engineering + Visualization
+## 🔐 Production-Level Features
+Potential enterprise upgrades:
 
-✔ Real-world healthcare simulation
+- API Rate Limiting
+- Logging & Monitoring
+- CI/CD Pipeline
+- MySQL/PostgreSQL Integration
+- FastAPI Backend
+- Real-time Telemetry Streaming
 
-✔ Scalable and modular architecture
+## 💡 Use Cases
+- ICU Monitoring
+- Resource Optimization
+- Hospital Operations
+- Emergency Simulation
+- Healthcare Analytics
+  
+## 🏆 Key Highlights
+✔ Real-time ICU Simulation
+✔ Automated Bed Allocation
+✔ Machine Learning Risk Prediction
+✔ Interactive Dashboard
+✔ Modular Architecture
+✔ Scalable Design
+✔ Production-Oriented Structure
 
-✔ Handles real-world data issues (missing values)
 
-✔ Interactive and decision-focused dashboard
+### 👩‍💻 Author
+Sangita Bera | Data Science Enthusiast | Backend Developer | ML & AI Learner
 
-# 👩‍💻 Author
+### ⭐ GitHub Support
+If you found this project useful:
 
-Sangita Bera
+⭐ Star the repository
+🍴 Fork the project
+📢 Share with others
 
-Aspiring Data Scientist | Backend Developer | Digital Creator
-
-# ⭐ Support
-
-If you like this project:
-
-⭐ Star the repo
-
-🍴 Fork it
-
-📢 Share it
-
-# 🚀 Final Note
-
-This project is not just a dashboard —
-it’s a mini hospital intelligence system designed to simulate real-world ICU decision-making.
